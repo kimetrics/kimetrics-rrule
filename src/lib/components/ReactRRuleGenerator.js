@@ -10,6 +10,8 @@ import computeRRuleFromString from '../utils/computeRRule/fromString/computeRRul
 import configureInitialState from '../utils/configureInitialState';
 import '../styles/index.css';
 
+import Form from 'grommet/components/Form';
+
 class ReactRRuleGenerator extends PureComponent {
     // compute default view based on user's config
     state = configureInitialState(
@@ -60,54 +62,24 @@ class ReactRRuleGenerator extends PureComponent {
             },
         } = this.state;
 
-        return (
-            <div>
-                {
-                    !options.hideError && error && (
-                        <div className="alert alert-danger">
-                            You provided an invalid RRule value to component. {`'${error.value}'`} is not a correct
-                            RRule string.
-                        </div>
-                    )
-                }
+        console.log(end);
 
-                <div className="px-0 pt-3 border rounded">
+        return (
+            <Form compact={false} fill={false}>
+                <fieldset>
                     {
                         !options.hideStart && (
-                            <div>
-                                <Start
-                                    id={`${id}-start`}
-                                    start={start}
-                                    handleChange={this.handleChange}
-                                />
-                                <hr/>
-                            </div>
+                            <Start id={`${id}-start`} start={start} handleChange={this.handleChange}/>
                         )
                     }
-
-                    <div>
-                        <Repeat
-                            id={`${id}-repeat`}
-                            repeat={repeat}
-                            handleChange={this.handleChange}
-                        />
-                    </div>
-
+                    <Repeat id={`${id}-repeat`} repeat={repeat} handleChange={this.handleChange}/>
                     {
                         !options.hideEnd && (
-                            <div>
-                                <hr/>
-                                <End
-                                    id={`${id}-end`}
-                                    end={end}
-                                    handleChange={this.handleChange}
-                                />
-                            </div>
+                            <End id={`${id}-end`} end={end} handleChange={this.handleChange}/>
                         )
                     }
-
-                </div>
-            </div>
+                </fieldset>
+            </Form>
         );
     }
 }

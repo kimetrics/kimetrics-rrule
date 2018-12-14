@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import RepeatYearly from './Yearly/index';
 import RepeatMonthly from './Monthly/index';
@@ -6,8 +6,7 @@ import RepeatWeekly from './Weekly/index';
 import RepeatDaily from './Daily/index';
 import RepeatHourly from './Hourly/index';
 
-import FormField from 'grommet/components/FormField'
-import Select from 'grommet/components/Select'
+import FormField from 'grommet/components/FormField';
 
 const Repeat = ({
                     id,
@@ -22,51 +21,26 @@ const Repeat = ({
                     },
                     handleChange,
                 }) => {
-
     const isOptionAvailable = option => !options.frequency || options.frequency.indexOf(option) !== -1;
     const isOptionSelected = option => frequency === option;
 
-    const frecuencies = [];
-
-    if (isOptionAvailable('Yearly')) {
-        frecuencies.push({value: 'Yearly', text: 'Yearly'})
-    }
-
-    if (isOptionAvailable('Monthly')) {
-        frecuencies.push({value: 'Monthly', text: 'Monthly'})
-    }
-
-    if (isOptionAvailable('Weekly')) {
-        frecuencies.push({value: 'Weekly', text: 'Weekly'})
-    }
-
-    if (isOptionAvailable('Daily')) {
-        frecuencies.push({value: 'Daily', text: 'Daily'})
-    }
-
-    if (isOptionAvailable('Hourly')) {
-        frecuencies.push({value: 'Hourly', text: 'Hourly'})
-    }
-
-    /*
-    {isOptionAvailable('Monthly') && <option value="Monthly">Monthly</option>}
-    {isOptionAvailable('Weekly') && <option value="Weekly">Weekly</option>}
-    {isOptionAvailable('Daily') && <option value="Daily">Daily</option>}
-    {isOptionAvailable('Hourly') && <option value="Hourly">Hourly</option>}*/
     return (
-        <div className="px-3">
+        <Fragment>
             <FormField label='Repeat'>
-                <Select
+                <select
                     name="repeat.frequency"
                     id={`${id}-frequency`}
-                    multiple={false}
-                    inline={false}
+                    className="form-control"
                     value={frequency}
-                    options={frecuencies}
-                    onChange={handleChange}
-                />
+                    onChange={handleChange}>
+                    <option value="-">Seleccionar</option>
+                    {isOptionAvailable('Yearly') && <option value="Yearly">Yearly</option>}
+                    {isOptionAvailable('Monthly') && <option value="Monthly">Monthly</option>}
+                    {isOptionAvailable('Weekly') && <option value="Weekly">Weekly</option>}
+                    {isOptionAvailable('Daily') && <option value="Daily">Daily</option>}
+                    {isOptionAvailable('Hourly') && <option value="Hourly">Hourly</option>}
+                </select>
             </FormField>
-
             {
                 isOptionSelected('Yearly') &&
                 <RepeatYearly
@@ -107,8 +81,7 @@ const Repeat = ({
                     handleChange={handleChange}
                 />
             }
-
-        </div>
+        </Fragment>
     );
 };
 
