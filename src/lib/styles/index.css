@@ -1,4 +1,5 @@
 @import 'react-datetime.css';
+@import '~grommet/grommet.min.css';
 
 .rdt .form-control {
   background-color: white;
