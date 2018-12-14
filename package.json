@@ -1,10 +1,10 @@
 {
-  "name": "react-rrule-generator",
-  "version": "1.1.2",
-  "author": "Filip Duczyminski <fduczyminski@gmail.com>",
+  "name": "kimetrics-rrule",
+  "version": "0.0.1",
+  "author": "Kimetrics <desarrollo@kimetrics.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fafruch/react-rrule-generator.git"
+    "url": "git+git@bitbucket.org:kimetrics/kimetrics-rrule.git"
   },
   "license": "MIT",
   "main": "build/index.js",
@@ -17,9 +17,9 @@
     "deploy": "gh-pages -d build-demo"
   },
   "bugs": {
-    "url": "https://github.com/Fafruch/react-rrule-generator/issues"
+    "url": ""
   },
-  "homepage": "https://fafruch.github.io/react-rrule-generator",
+  "homepage": "",
   "devDependencies": {
     "autoprefixer": "7.1.2",
     "babel-cli": "^6.26.0",

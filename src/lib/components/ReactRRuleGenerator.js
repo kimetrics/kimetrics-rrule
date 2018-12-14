@@ -62,8 +62,6 @@ class ReactRRuleGenerator extends PureComponent {
             },
         } = this.state;
 
-        console.log(end);
-
         return (
             <Form compact={false} fill={false}>
                 <fieldset>
