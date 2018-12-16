@@ -23,40 +23,40 @@ const RepeatWeekly = ({
     }
 
     return (
-        <FormField label="Every">
-            <input
-                id={`${id}-interval`}
-                name="repeat.weekly.interval"
-                aria-label="Repeat weekly interval"
-                className="form-control"
-                value={interval}
-                onChange={numericalFieldHandler(handleChange)}/>
-            <span> Week(s)</span>
-
-            <Box flex={true} direction='column' pad={{vertical: 'small'}}>
+        <FormField label="Cada:">
+            <Box flex={true} align='center' direction='row' pad={{vertical: 'small', horizontal: 'medium'}}>
+                <input
+                    id={`${id}-interval`}
+                    name="repeat.weekly.interval"
+                    aria-label="Repeat weekly interval"
+                    value={interval}
+                    onChange={numericalFieldHandler(handleChange)}/>
+                <span> Semana(s)</span>
+            </Box>
+            <Box flex={true} pad={{vertical: 'small', horizontal: 'medium'}}>
                 {
                     daysArray.map(([dayName, isDayActive]) => (
-                        <CheckBox
-                            label={`${dayName.slice(0,1).toUpperCase()}${dayName.slice(1)}`}
-                            toggle={true}
-                            key={`${id}-${dayName}`}
-                            id={`${id}-${dayName}`}
-                            className={`repeat-weekly`}
-                            name={`repeat.weekly.days[${dayName}]`}
-                            checked={isDayActive}
-                            onChange={(event) => {
-                                const editedEvent = {
-                                    ...event,
-                                    target: {
-                                        ...event.target,
-                                        value: !isDayActive,
-                                        name: event.target.name,
-                                    },
-                                };
+                        <div key={`${id}-${dayName}`} style={{marginBottom: 5}}>
+                            <CheckBox
+                                label={`${dayName.slice(0, 1).toUpperCase()}${dayName.slice(1)}`}
+                                toggle={true}
+                                id={`${id}-${dayName}`}
+                                name={`repeat.weekly.days[${dayName}]`}
+                                checked={isDayActive}
+                                onChange={(event) => {
+                                    const editedEvent = {
+                                        ...event,
+                                        target: {
+                                            ...event.target,
+                                            value: !isDayActive,
+                                            name: event.target.name,
+                                        },
+                                    };
 
-                                handleChange(editedEvent);
-                            }}
-                        />
+                                    handleChange(editedEvent);
+                                }}
+                            />
+                        </div>
                     ))
                 }
             </Box>

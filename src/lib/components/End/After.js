@@ -11,7 +11,6 @@ const EndAfter = ({id, after, handleChange}) => (
             id={id}
             name="end.after"
             aria-label="End after"
-            className="form-control"
             value={after}
             onChange={numericalFieldHandler(handleChange)}
         />

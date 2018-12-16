@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StartOnDate from './OnDate';
+import StartOnDate from './StartOnDate';
 import FormField from "grommet/components/FormField";
+import Box from "grommet/components/Box";
 
 const Start = ({
                    id,
@@ -10,8 +11,10 @@ const Start = ({
                    },
                    handleChange,
                }) => (
-    <FormField label='Start'>
-        <StartOnDate id={id} onDate={onDate} handleChange={handleChange}/>
+    <FormField label='Inicio'>
+        <Box direction='row' align='center' pad={{vertical:'small', horizontal:'medium'}}>
+            <StartOnDate id={id} onDate={onDate} handleChange={handleChange}/>
+        </Box>
     </FormField>
 );
 

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import ReactRRuleGenerator from '../lib';
+import KRRule from '../lib';
 
 import Box from 'grommet/components/Box';
-import Form from 'grommet/components/Form';
 import TextInput from 'grommet/components/TextInput';
 import FormField from 'grommet/components/FormField';
 
@@ -22,25 +21,26 @@ class App extends Component {
         } = this.state;
 
         return (
-            <Box className="app" full={true} align='center' justify='center' pad={{horizontal:'small'}}>
-                <ReactRRuleGenerator
+            <Box className="app" full={true} align='center' justify='center'
+                 pad={{horizontal: 'small'}} style={{boxSizing: 'border-box'}}>
+                <KRRule
                     config={{
-                        mode: 'On date',
+                        hideStart: false,
                         repeat: ['Monthly', 'Weekly', 'Daily'],
-                        yearly: 'on the',
-                        monthly: 'on',
+                        //mode: 'On date',
+                        //monthly: 'on',
                         end: ['On date'],
                         weekStartsOnSunday: true,
                         hideError: true
                     }}
-                    onChange={this.handleChange} value={this.state.rrule}/>
+                    onChange={this.handleChange} value={this.state.rrule}
+                />
 
                 <br/>
-                <Form>
-                    <FormField label="RRule:">
-                        <TextInput value={rrule} style={{width:'85%'}} size='large'/>
-                    </FormField>
-                </Form>
+                <br/>
+                <FormField label="RRule:">
+                    <TextInput value={rrule} style={{width: '100%'}} size='large'/>
+                </FormField>
             </Box>
         );
     }

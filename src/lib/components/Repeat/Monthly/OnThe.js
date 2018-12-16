@@ -17,8 +17,8 @@ const RepeatMonthlyOnThe = ({
     const isActive = mode === 'on the';
 
     return (
-        <Box className={`form-group row d-flex align-items-sm-center ${!isActive && 'opacity-50'}`}>
-            <FormField>
+        <FormField label='Sobre el:'>
+            <Box direction='row' align='center'>
                 {hasMoreModes && (
                     <input
                         id={id}
@@ -30,41 +30,34 @@ const RepeatMonthlyOnThe = ({
                         onChange={handleChange}
                     />
                 )}
-                <span>on the</span>
-            </FormField>
-
-            <FormField>
                 <select
-                    id={`${id}-which`}
+                    id={`${id} - which`}
                     name="repeat.monthly.onThe.which"
                     aria-label="Repeat monthly on the which"
-                    className="form-control"
+                    className={`${!isActive && 'opacity-50'}`}
                     value={onThe.which}
                     disabled={!isActive}
-                    onChange={handleChange}
-                >
-                    <option value="First">First</option>
-                    <option value="Second">Second</option>
-                    <option value="Third">Third</option>
-                    <option value="Fourth">Fourth</option>
-                    <option value="Last">Last</option>
+                    onChange={handleChange}>
+                    <option value="First">Primero</option>
+                    <option value="Second">Segundo</option>
+                    <option value="Third">Tercero</option>
+                    <option value="Fourth">Cuarto</option>
+                    <option value="Last">Último</option>
                 </select>
-            </FormField>
-
-            <FormField>
                 <select
-                    id={`${id}-day`}
+                    id={`${id} - day`}
                     name="repeat.monthly.onThe.day"
                     aria-label="Repeat monthly on the day"
-                    className="form-control"
+                    className={`${!isActive && 'opacity-50'}`}
                     value={onThe.day}
                     disabled={!isActive}
-                    onChange={handleChange}
-                >
-                    {DAYS.map(day => <option key={day} value={day}>{day}</option>)}
+                    onChange={handleChange}>
+                    {
+                        DAYS.map(day => <option key={day} value={day}>{day}</option>)
+                    }
                 </select>
-            </FormField>
-        </Box>
+            </Box>
+        </FormField>
     );
 };
 RepeatMonthlyOnThe.propTypes = {

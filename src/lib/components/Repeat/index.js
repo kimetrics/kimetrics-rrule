@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import RepeatYearly from './Yearly/index';
 import RepeatMonthly from './Monthly/index';
@@ -25,20 +25,19 @@ const Repeat = ({
     const isOptionSelected = option => frequency === option;
 
     return (
-        <Fragment>
-            <FormField label='Repeat'>
+        <div>
+            <FormField label='Repetir:'>
                 <select
                     name="repeat.frequency"
                     id={`${id}-frequency`}
-                    className="form-control"
                     value={frequency}
                     onChange={handleChange}>
                     <option value="-">Seleccionar</option>
-                    {isOptionAvailable('Yearly') && <option value="Yearly">Yearly</option>}
-                    {isOptionAvailable('Monthly') && <option value="Monthly">Monthly</option>}
-                    {isOptionAvailable('Weekly') && <option value="Weekly">Weekly</option>}
-                    {isOptionAvailable('Daily') && <option value="Daily">Daily</option>}
-                    {isOptionAvailable('Hourly') && <option value="Hourly">Hourly</option>}
+                    {isOptionAvailable('Yearly') && <option value="Yearly">Anual</option>}
+                    {isOptionAvailable('Monthly') && <option value="Monthly">Mensual</option>}
+                    {isOptionAvailable('Weekly') && <option value="Weekly">Semanal</option>}
+                    {isOptionAvailable('Daily') && <option value="Daily">Diario</option>}
+                    {isOptionAvailable('Hourly') && <option value="Hourly">Cada hora</option>}
                 </select>
             </FormField>
             {
@@ -81,7 +80,7 @@ const Repeat = ({
                     handleChange={handleChange}
                 />
             }
-        </Fragment>
+        </div>
     );
 };
 

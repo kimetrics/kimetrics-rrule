@@ -23,12 +23,11 @@ const RepeatMonthly = ({
 
     return (
         <Box>
-            <FormField label='every'>
+            <FormField label='Cada:'>
                 <input
                     id={`${id}-interval`}
                     name="repeat.monthly.interval"
                     aria-label="Repeat monthly interval"
-                    className="form-control"
                     value={interval}
                     onChange={numericalFieldHandler(handleChange)}
                 />

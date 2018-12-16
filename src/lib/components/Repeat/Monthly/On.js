@@ -15,8 +15,8 @@ const RepeatMonthlyOn = ({
     const isActive = mode === 'on';
 
     return (
-        <Box className={`${!isActive && 'opacity-50'}`}>
-            <FormField label='on day'>
+        <FormField label='En el día:'>
+            <Box direction='row' align='center'>
                 {hasMoreModes && (
                     <input
                         id={id}
@@ -32,15 +32,14 @@ const RepeatMonthlyOn = ({
                     id={`${id}-day`}
                     name="repeat.monthly.on.day"
                     aria-label="Repeat monthly on a day"
-                    className="form-control"
+                    className={`${!isActive && 'opacity-50'}`}
                     value={on.day}
                     disabled={!isActive}
-                    onChange={numericalFieldHandler(handleChange)}
-                >
+                    onChange={numericalFieldHandler(handleChange)}>
                     {[...new Array(31)].map((day, i) => <option key={i} value={i + 1}>{i + 1}</option>)}
                 </select>
-            </FormField>
-        </Box>
+            </Box>
+        </FormField>
     );
 };
 

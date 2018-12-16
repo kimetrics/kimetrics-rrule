@@ -4,26 +4,26 @@ import moment from 'moment';
 import DateTime from 'grommet/components/DateTime';
 import {DATE_TIME_FORMAT} from '../../constants/index';
 
-const EndOnDate = ({
-                       id,
-                       onDate: {
-                           date,
-                           options,
-                       }, handleChange
-                   }) => {
+const StartOnDate = ({
+                         id,
+                         onDate: {
+                             date,
+                             options,
+                         }, handleChange
+                     }) => {
 
     return (
         <DateTime
             id={`${id}-datetime`}
-            name='end.onDate.date'
+            name='start.onDate.date'
             format={DATE_TIME_FORMAT}
             value={date}
             onChange={(inputDate) => {
                 const editedEvent = {
                     target: {
                         value: moment(inputDate).format(DATE_TIME_FORMAT),
-                        name: 'end.onDate.date',
-                    },
+                        name: 'start.onDate.date',
+                    }
                 };
 
                 handleChange(editedEvent);
@@ -32,7 +32,7 @@ const EndOnDate = ({
     );
 };
 
-EndOnDate.propTypes = {
+StartOnDate.propTypes = {
     id: PropTypes.string.isRequired,
     onDate: PropTypes.shape({
         date: PropTypes.string.isRequired,
@@ -44,4 +44,4 @@ EndOnDate.propTypes = {
     handleChange: PropTypes.func.isRequired,
 };
 
-export default EndOnDate;
+export default StartOnDate;
