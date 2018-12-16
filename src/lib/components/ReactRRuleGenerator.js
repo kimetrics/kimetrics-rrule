@@ -8,6 +8,7 @@ import End from './End/index';
 import computeRRuleToString from '../utils/computeRRule/toString/computeRRule';
 import computeRRuleFromString from '../utils/computeRRule/fromString/computeRRule';
 import configureInitialState from '../utils/configureInitialState';
+
 import '../styles/index.css';
 
 import Form from 'grommet/components/Form';
@@ -98,6 +99,7 @@ ReactRRuleGenerator.propTypes = {
     onChange: PropTypes.func,
     calendarComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 };
+
 ReactRRuleGenerator.defaultProps = {
     id: null,
     value: '',

@@ -31,33 +31,32 @@ const RepeatWeekly = ({
                 className="form-control"
                 value={interval}
                 onChange={numericalFieldHandler(handleChange)}/>
-            <span> week(s)</span>
+            <span> Week(s)</span>
 
-            <Box flex={true} direction='column'>
+            <Box flex={true} direction='column' pad={{vertical: 'small'}}>
                 {
                     daysArray.map(([dayName, isDayActive]) => (
-                        <div  key={`${id}-${dayName}`} style={{padding: '5px 0'}}>
-                            <CheckBox
-                                label={dayName}
-                                toggle={true}
-                                key={`${id}-${dayName}`}
-                                id={`${id}-${dayName}`}
-                                name={`repeat.weekly.days[${dayName}]`}
-                                checked={isDayActive}
-                                onChange={(event) => {
-                                    const editedEvent = {
-                                        ...event,
-                                        target: {
-                                            ...event.target,
-                                            value: !isDayActive,
-                                            name: event.target.name,
-                                        },
-                                    };
+                        <CheckBox
+                            label={`${dayName.slice(0,1).toUpperCase()}${dayName.slice(1)}`}
+                            toggle={true}
+                            key={`${id}-${dayName}`}
+                            id={`${id}-${dayName}`}
+                            className={`repeat-weekly`}
+                            name={`repeat.weekly.days[${dayName}]`}
+                            checked={isDayActive}
+                            onChange={(event) => {
+                                const editedEvent = {
+                                    ...event,
+                                    target: {
+                                        ...event.target,
+                                        value: !isDayActive,
+                                        name: event.target.name,
+                                    },
+                                };
 
-                                    handleChange(editedEvent);
-                                }}
-                            />
-                        </div>
+                                handleChange(editedEvent);
+                            }}
+                        />
                     ))
                 }
             </Box>

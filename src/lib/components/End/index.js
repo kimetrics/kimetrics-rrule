@@ -1,8 +1,9 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import EndAfter from './After';
-import EndOnDate from './OnDate';
+import EndOnDate from './EndOnDate';
 
+import Box from 'grommet/components/Box';
 import FormField from 'grommet/components/FormField';
 
 const End = ({
@@ -22,27 +23,29 @@ const End = ({
     return (
         <Fragment>
             <FormField label="End">
-                <select
-                    name="end.mode"
-                    id={id}
-                    className="form-control"
-                    value={mode}
-                    onChange={handleChange}
-                >
-                    <option value="-">Seleccionar</option>
-                    {isOptionAvailable('Never') && <option value="Never">Never</option>}
-                    {isOptionAvailable('After') && <option value="After">After</option>}
-                    {isOptionAvailable('On date') && <option value="On date">On date</option>}
-                </select>
+                <Box direction='row' justify='between' align='center'>
+                    <select
+                        name="end.mode"
+                        id={id}
+                        className="form-control"
+                        value={mode}
+                        onChange={handleChange}>
+                        <option value="-">Seleccionar</option>
+                        {isOptionAvailable('Never') && <option value="Never">Never</option>}
+                        {isOptionAvailable('After') && <option value="After">After</option>}
+                        {isOptionAvailable('On date') && <option value="On date">On date</option>}
+                    </select>
+                    {
+                        isOptionSelected('After') &&
+                        <EndAfter id={`${id}-after`} after={after} handleChange={handleChange}/>
+                    }
+                    {
+                        (isOptionSelected('On date')) &&
+                        <EndOnDate id={`${id}-onDate`} onDate={onDate} handleChange={handleChange}/>
+                    }
+                </Box>
             </FormField>
-            {
-                isOptionSelected('After') &&
-                <EndAfter id={`${id}-after`} after={after} handleChange={handleChange}/>
-            }
-            {
-                (isOptionSelected('On date')) &&
-                <EndOnDate id={`${id}-onDate`} onDate={onDate} handleChange={handleChange}/>
-            }
+
         </Fragment>
     );
 };

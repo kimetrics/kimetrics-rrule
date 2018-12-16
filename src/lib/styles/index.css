@@ -1,10 +1,29 @@
-@import 'react-datetime.css';
 @import '~grommet/grommet.min.css';
 
-.rdt .form-control {
-  background-color: white;
+.opacity-50 {
+    opacity: 0.5;
 }
 
-.opacity-50 {
-  opacity: 0.5;
+.grommetux-form-field {
+    box-sizing: border-box;
+}
+
+.grommetux-form-field__contents select {
+    background-image: none;
+    height: 36px;
+}
+
+.grommetux-form-field__contents select,
+.grommetux-form-field__contents input {
+    margin-left: 25px;
+    padding-left: 15px;
+}
+
+.grommetux-form-field__contents select:focus,
+.grommetux-form-field__contents input:focus {
+    outline: none;
+}
+
+.grommetux-check-box.repeat-weekly {
+    padding: 5px 0;
 }

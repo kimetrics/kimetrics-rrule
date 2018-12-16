@@ -15,8 +15,8 @@ const RepeatMonthlyOn = ({
     const isActive = mode === 'on';
 
     return (
-        <Box className={`form-group row d-flex align-items-sm-center ${!isActive && 'opacity-50'}`}>
-            <FormField className="col-sm-1 offset-sm-2">
+        <Box className={`${!isActive && 'opacity-50'}`}>
+            <FormField label='on day'>
                 {hasMoreModes && (
                     <input
                         id={id}
@@ -28,10 +28,6 @@ const RepeatMonthlyOn = ({
                         onChange={handleChange}
                     />
                 )}
-                <div> on day </div>
-            </FormField>
-
-            <FormField>
                 <select
                     id={`${id}-day`}
                     name="repeat.monthly.on.day"

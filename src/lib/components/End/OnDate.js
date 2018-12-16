@@ -15,8 +15,7 @@ const EndOnDate = ({
                        onDate: {
                            date,
                            options,
-                       },
-                       handleChange,
+                       }, handleChange
                    }) => {
     const CustomCalendar = options.calendarComponent;
 

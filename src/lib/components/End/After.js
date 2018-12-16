@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import numericalFieldHandler from '../../utils/numericalFieldHandler';
 
 // error={errors.name}
-
-import Box from 'grommet/components/Box';
 import FormField from 'grommet/components/FormField';
 
 const EndAfter = ({id, after, handleChange}) => (
