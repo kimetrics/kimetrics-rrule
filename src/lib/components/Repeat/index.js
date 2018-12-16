@@ -6,6 +6,7 @@ import RepeatWeekly from './Weekly/index';
 import RepeatDaily from './Daily/index';
 import RepeatHourly from './Hourly/index';
 
+import Box from 'grommet/components/Box';
 import FormField from 'grommet/components/FormField';
 
 const Repeat = ({
@@ -27,18 +28,20 @@ const Repeat = ({
     return (
         <div>
             <FormField label='Repetir:'>
-                <select
-                    name="repeat.frequency"
-                    id={`${id}-frequency`}
-                    value={frequency}
-                    onChange={handleChange}>
-                    <option value="-">Seleccionar</option>
-                    {isOptionAvailable('Yearly') && <option value="Yearly">Anual</option>}
-                    {isOptionAvailable('Monthly') && <option value="Monthly">Mensual</option>}
-                    {isOptionAvailable('Weekly') && <option value="Weekly">Semanal</option>}
-                    {isOptionAvailable('Daily') && <option value="Daily">Diario</option>}
-                    {isOptionAvailable('Hourly') && <option value="Hourly">Cada hora</option>}
-                </select>
+                <Box pad={{horizontal: 'medium'}}>
+                    <select
+                        name="repeat.frequency"
+                        id={`${id}-frequency`}
+                        value={frequency}
+                        onChange={handleChange}>
+                        <option value="-">Seleccionar</option>
+                        {isOptionAvailable('Yearly') && <option value="Yearly">Anual</option>}
+                        {isOptionAvailable('Monthly') && <option value="Monthly">Mensual</option>}
+                        {isOptionAvailable('Weekly') && <option value="Weekly">Semanal</option>}
+                        {isOptionAvailable('Daily') && <option value="Daily">Diario</option>}
+                        {isOptionAvailable('Hourly') && <option value="Hourly">Cada hora</option>}
+                    </select>
+                </Box>
             </FormField>
             {
                 isOptionSelected('Yearly') &&

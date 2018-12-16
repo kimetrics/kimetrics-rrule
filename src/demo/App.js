@@ -37,10 +37,10 @@ class App extends Component {
                 />
 
                 <br/>
-                <br/>
-                <FormField label="RRule:">
-                    <TextInput value={rrule} style={{width: '100%'}} size='large'/>
-                </FormField>
+                <label data-label="RRule:">
+                    RRule: <br/>
+                    <textarea value={rrule} rows={4} style={{width: '100%'}} onChange={() => {}}/>
+                </label>
             </Box>
         );
     }

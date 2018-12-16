@@ -15,10 +15,11 @@ const RepeatMonthlyOn = ({
     const isActive = mode === 'on';
 
     return (
-        <FormField label='En el día:'>
-            <Box direction='row' align='center'>
+        <FormField label='En el día:' style={{border:'none'}}>
+            <Box direction='row' align='center' pad={{horizontal:'medium'}}>
                 {hasMoreModes && (
                     <input
+                        style={{marginRight: 5}}
                         id={id}
                         type="radio"
                         name="repeat.monthly.mode"

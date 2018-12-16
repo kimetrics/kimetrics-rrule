@@ -24,38 +24,43 @@ const RepeatMonthly = ({
     return (
         <Box>
             <FormField label='Cada:'>
-                <input
-                    id={`${id}-interval`}
-                    name="repeat.monthly.interval"
-                    aria-label="Repeat monthly interval"
-                    value={interval}
-                    onChange={numericalFieldHandler(handleChange)}
-                />
-                <span> month(s)</span>
+                <Box pad={{vertical: 'small', horizontal: 'medium'}}>
+                    <Box direction='row'>
+                        <input
+                            id={`${id}-interval`}
+                            name="repeat.monthly.interval"
+                            aria-label="Repeat monthly interval"
+                            value={interval}
+                            onChange={numericalFieldHandler(handleChange)}
+                        />
+                        <span> Mes(es)</span>
+                    </Box>
+                    {
+                        isOptionAvailable('on') && (
+                            <RepeatMonthlyOn
+                                id={`${id}-on`}
+                                mode={mode}
+                                on={on}
+                                hasMoreModes={!isTheOnlyOneMode('on')}
+                                handleChange={handleChange}
+                            />
+                        )
+                    }
+                    {
+                        isOptionAvailable('on the') && (
+                            <RepeatMonthlyOnThe
+                                id={`${id}-onThe`}
+                                mode={mode}
+                                onThe={onThe}
+                                hasMoreModes={!isTheOnlyOneMode('on the')}
+                                handleChange={handleChange}
+                            />
+                        )
+                    }
+                </Box>
             </FormField>
 
-            {
-                isOptionAvailable('on') && (
-                    <RepeatMonthlyOn
-                        id={`${id}-on`}
-                        mode={mode}
-                        on={on}
-                        hasMoreModes={!isTheOnlyOneMode('on')}
-                        handleChange={handleChange}
-                    />
-                )
-            }
-            {
-                isOptionAvailable('on the') && (
-                    <RepeatMonthlyOnThe
-                        id={`${id}-onThe`}
-                        mode={mode}
-                        onThe={onThe}
-                        hasMoreModes={!isTheOnlyOneMode('on the')}
-                        handleChange={handleChange}
-                    />
-                )
-            }
+
         </Box>
     );
 };
