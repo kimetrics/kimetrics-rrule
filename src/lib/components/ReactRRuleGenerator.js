@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Fragment, PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {cloneDeep, set} from 'lodash';
 
@@ -64,21 +64,19 @@ class ReactRRuleGenerator extends PureComponent {
         } = this.state;
 
         return (
-            <Form compact={false} fill={false}>
-                <fieldset>
-                    {
-                        !options.hideStart && (
-                            <Start id={`${id}-start`} start={start} handleChange={this.handleChange}/>
-                        )
-                    }
-                    <Repeat id={`${id}-repeat`} repeat={repeat} handleChange={this.handleChange}/>
-                    {
-                        !options.hideEnd && (
-                            <End id={`${id}-end`} end={end} handleChange={this.handleChange}/>
-                        )
-                    }
-                </fieldset>
-            </Form>
+            <Fragment>
+                {
+                    !options.hideStart && (
+                        <Start id={`${id}-start`} start={start} handleChange={this.handleChange}/>
+                    )
+                }
+                <Repeat id={`${id}-repeat`} repeat={repeat} handleChange={this.handleChange}/>
+                {
+                    !options.hideEnd && (
+                        <End id={`${id}-end`} end={end} handleChange={this.handleChange}/>
+                    )
+                }
+            </Fragment>
         );
     }
 }
