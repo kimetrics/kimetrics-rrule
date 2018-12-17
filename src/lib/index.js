@@ -50,6 +50,22 @@ class ReactRRuleGenerator extends Component {
         this.props.onChange(rrule);
     };
 
+    handleStartChange = (value) => {
+        const {target} = value;
+        this.props.onStartChange(target.value);
+
+        // Raised handleChange event
+        this.handleChange(value);
+    };
+
+    handleEndChange = (value) => {
+        const {target} = value;
+        this.props.onEndChange(target.value);
+
+        // Raised handleChange event
+        this.handleChange(value);
+    };
+
     render() {
         const {
             id,
@@ -66,13 +82,13 @@ class ReactRRuleGenerator extends Component {
             <div className='ReactRRuleGenerator'>
                 {
                     !options.hideStart && (
-                        <Start id={`${id}-start`} start={start} handleChange={this.handleChange}/>
+                        <Start id={`${id}-start`} start={start} handleChange={this.handleStartChange}/>
                     )
                 }
                 <Repeat id={`${id}-repeat`} repeat={repeat} handleChange={this.handleChange}/>
                 {
                     !options.hideEnd && (
-                        <End id={`${id}-end`} end={end} handleChange={this.handleChange}/>
+                        <End id={`${id}-end`} end={end} handleChange={this.handleEndChange}/>
                     )
                 }
             </div>
@@ -94,6 +110,8 @@ ReactRRuleGenerator.propTypes = {
     }),
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onStartChange: PropTypes.func,
+    onEndChange: PropTypes.func,
     calendarComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 };
 
@@ -102,6 +120,8 @@ ReactRRuleGenerator.defaultProps = {
     value: '',
     config: {},
     onChange() {},
+    onEndChange() {},
+    onStartChange() {},
     calendarComponent: null,
 };
 

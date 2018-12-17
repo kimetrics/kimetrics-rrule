@@ -22,6 +22,12 @@ class App extends Component {
             <Box className="app" full={true} align='center' justify='center'
                  pad={{horizontal: 'small'}} style={{boxSizing: 'border-box'}}>
                 <KRRule
+                    onEndChange={(end) => {
+                        console.log('end', end);
+                    }}
+                    onStartChange={(start) => {
+                        console.log('start', start);
+                    }}
                     config={{
                         hideStart: false,
                         repeat: ['Monthly', 'Weekly', 'Daily'],
