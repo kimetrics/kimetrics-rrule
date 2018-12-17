@@ -58,7 +58,7 @@ class ReactRRuleGenerator extends Component {
                 repeat,
                 end,
                 options,
-                error,
+                error
             },
         } = this.state;
 
@@ -101,8 +101,7 @@ ReactRRuleGenerator.defaultProps = {
     id: null,
     value: '',
     config: {},
-    onChange() {
-    },
+    onChange() {},
     calendarComponent: null,
 };
 
