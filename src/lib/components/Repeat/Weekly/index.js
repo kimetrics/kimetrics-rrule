@@ -33,7 +33,7 @@ const RepeatWeekly = ({
                     onChange={numericalFieldHandler(handleChange)}/>
                 <span> Semana(s)</span>
             </Box>
-            <Box flex={true} pad={{vertical: 'small', horizontal: 'medium'}}>
+            <Box flex={true} direction='row' wrap={true} pad={{vertical: 'small', horizontal: 'medium'}}>
                 {
                     daysArray.map(([dayName, isDayActive]) => (
                         <div key={`${id}-${dayName}`} style={{marginBottom: 5}}>

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import KRRule from '../lib';
 
 import Box from 'grommet/components/Box';
-import TextInput from 'grommet/components/TextInput';
-import FormField from 'grommet/components/FormField';
 
 class App extends Component {
 
@@ -30,7 +28,7 @@ class App extends Component {
                         //mode: 'On date',
                         //monthly: 'on',
                         end: ['On date'],
-                        weekStartsOnSunday: true,
+                        weekStartsOnSunday: false,
                         hideError: true
                     }}
                     onChange={this.handleChange} value={this.state.rrule}
