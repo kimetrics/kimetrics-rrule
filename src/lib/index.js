@@ -16,7 +16,7 @@ class ReactRRuleGenerator extends Component {
     state = configureInitialState(
         this.props.config,
         this.props.calendarComponent,
-        this.props.id,
+        this.props.id
     );
 
     componentWillMount() {
@@ -47,7 +47,7 @@ class ReactRRuleGenerator extends Component {
 
         this.setState({data: newData});
 
-        this.props.onChange(rrule);
+        this.props.onChange(rrule, {end: newData.end.onDate.date, start: newData.start.onDate.date});
     };
 
     handleStartChange = (value) => {
