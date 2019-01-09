@@ -1,4 +1,5 @@
 export const DATE_TIME_FORMAT = 'YYYY-MM-DD';
+export const DATE_TIME_FORMAT_READABLE = 'DD/MM/YYYY';
 
 export const MONTHS = [
     'Jan',

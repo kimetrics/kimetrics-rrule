@@ -9,10 +9,10 @@ const Start = ({
                    start: {
                        onDate,
                    },
-                   handleChange,
+                   handleChange
                }) => (
     <FormField label='Inicio'>
-        <Box direction='row' align='center' pad={{vertical:'small', horizontal:'medium'}}>
+        <Box direction='row' align='center' pad={{vertical: 'small', horizontal: 'medium'}}>
             <StartOnDate id={id} onDate={onDate} handleChange={handleChange}/>
         </Box>
     </FormField>

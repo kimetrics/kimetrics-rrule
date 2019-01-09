@@ -73,8 +73,7 @@ class ReactRRuleGenerator extends Component {
                 start,
                 repeat,
                 end,
-                options,
-                error
+                options
             },
         } = this.state;
 

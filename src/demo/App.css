@@ -3,3 +3,7 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.grommetux-form-field {
+    box-sizing: border-box;
+}
