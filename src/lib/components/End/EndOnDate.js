@@ -16,7 +16,7 @@ const EndOnDate = ({
         <DateTime
             id={`${id}-datetime`}
             name='end.onDate.date'
-            format={DATE_TIME_FORMAT}
+            format={DATE_TIME_FORMAT_READABLE}
             value={readable}
             onChange={(inputDate) => {
                 const editedEvent = {

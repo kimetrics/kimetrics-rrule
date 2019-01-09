@@ -14,6 +14,7 @@ const StartOnDate = ({
     const readable = moment(date, DATE_TIME_FORMAT).format(DATE_TIME_FORMAT_READABLE);
     return (
         <DateTime
+            id={`${id}-datetime`}
             value={readable}
             name='start.onDate.date'
             format={DATE_TIME_FORMAT_READABLE}
