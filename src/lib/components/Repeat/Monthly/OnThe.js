@@ -15,7 +15,6 @@ const RepeatMonthlyOnThe = ({
                                 handleChange,
                             }) => {
     const isActive = mode === 'on the';
-    console.log(DAYS_i18n)
     return (
         <FormField label='Sobre el:' style={{border:'none'}}>
             <Box direction='row' align='center' pad={{horizontal:'medium'}}>
