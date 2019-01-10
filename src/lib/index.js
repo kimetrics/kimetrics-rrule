@@ -9,6 +9,7 @@ import computeRRuleToString from './utils/computeRRule/toString/computeRRule';
 import computeRRuleFromString from './utils/computeRRule/fromString/computeRRule';
 import configureInitialState from './utils/configureInitialState';
 
+
 import './styles/index.css';
 
 class ReactRRuleGenerator extends Component {
@@ -78,7 +79,7 @@ class ReactRRuleGenerator extends Component {
         } = this.state;
 
         return (
-            <div className='ReactRRuleGenerator'>
+            <div id='ReactRRuleGenerator' className='rrule-generator'>
                 {
                     !options.hideStart && (
                         <Start id={`${id}-start`} start={start} handleChange={this.handleStartChange}/>
