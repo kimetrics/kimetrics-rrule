@@ -15,6 +15,7 @@ export const MONTHS = [
     'Nov',
     'Dec'
 ];
+
 export const DAYS = [
     'Monday',
     'Tuesday',
@@ -27,3 +28,16 @@ export const DAYS = [
     'Weekday',
     'Weekend day'
 ];
+
+export const DAYS_i18n = {
+    'Monday': 'Lunes',
+    'Tuesday': 'Martes',
+    'Wednesday': 'Miércoles',
+    'Thursday': 'Jueves',
+    'Friday': 'Viernes',
+    'Saturday': 'Sábado',
+    'Sunday': 'Domingo',
+    'Day': 'Día',
+    'Weekday': 'Semana',
+    'Weekend day': 'Día de fin de semana'
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {DAYS} from '../../../constants/index';
+import {DAYS, DAYS_i18n} from '../../../constants/index';
 
 import Box from 'grommet/components/Box';
 import FormField from 'grommet/components/FormField';
@@ -15,7 +15,7 @@ const RepeatMonthlyOnThe = ({
                                 handleChange,
                             }) => {
     const isActive = mode === 'on the';
-
+    console.log(DAYS_i18n)
     return (
         <FormField label='Sobre el:' style={{border:'none'}}>
             <Box direction='row' align='center' pad={{horizontal:'medium'}}>
@@ -39,9 +39,9 @@ const RepeatMonthlyOnThe = ({
                     value={onThe.which}
                     disabled={!isActive}
                     onChange={handleChange}>
-                    <option value="First">Primero</option>
+                    <option value="First">Primer</option>
                     <option value="Second">Segundo</option>
-                    <option value="Third">Tercero</option>
+                    <option value="Third">Tercer</option>
                     <option value="Fourth">Cuarto</option>
                     <option value="Last">Último</option>
                 </select>
@@ -54,7 +54,7 @@ const RepeatMonthlyOnThe = ({
                     disabled={!isActive}
                     onChange={handleChange}>
                     {
-                        DAYS.map(day => <option key={day} value={day}>{day}</option>)
+                        DAYS.map(day => <option key={day} value={day}>{DAYS_i18n[day]}</option>)
                     }
                 </select>
             </Box>
